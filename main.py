@@ -1,7 +1,7 @@
 import requests
 import json
 from webbrowser import open
-from sys import argv
+
 
 # Could sperate into different functions?
 # Could also ask where coords? http://api.open-notify.org/iss-now.json
