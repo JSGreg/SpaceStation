@@ -22,6 +22,7 @@ def main():
             print("Who is in space?")
             userInput = input('What do you want to know? (Number/People)')
             userInput = userInput.lower()
+            userInput = userInput.rstrip(" ")
 
             if userInput == "people":
                 for info in dict_object[userInput]:
@@ -32,18 +33,22 @@ def main():
             else:
                 raise KeyError ("Invalid Input")
             
-            
-            userInput2 = input('Do you want to know where the ISS is? (Y/N)')
-            userInput = userInput.lower()
-            
-            if userInput2 == "y":
-                map()
-            elif userInput2 == "n":
-                break
-            else:
-                raise KeyError("Invalid Input")
+            while True: 
+                try:
+                    userInput2 = input('Do you want to know where the ISS is? (Y/N)')
+                    userInput2 = userInput2.lower()
+                    userInput2 = userInput2.rstrip(" ")
+
+                    if userInput2 == "y" or userInput2 == " yes":
+                        map()
+                    elif userInput2 == "n" or userInput2 == "no":
+                        break
+                    else:
+                        raise KeyError("Invalid Input")
+                    break
+                except KeyError: 
+                    print("Invalid Input")
             break
-                    
         except KeyError: 
             print("Invalid Input")
 
